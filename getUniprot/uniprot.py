@@ -9,7 +9,7 @@ import os
 def cli(query, organism, review='yes'):
 
     base = 'https://www.uniprot.org/uniprot/'
-    search = 'name: "{name}" AND taxonomy: {organism} AND reviewed:{reviewed}'.format(name=name, organism=organism, reviewed=review)
+    search = 'name: "{name}" AND taxonomy: {organism} AND reviewed:{reviewed}'.format(name=query, organism=organism, reviewed=review)
     payload = {'query': search,'format': 'fasta', 'limit':'1'} # Gets fasta sequence limited to 1 sequence
 
     r = requests.get(base, params=payload)
@@ -31,5 +31,5 @@ def cli(query, organism, review='yes'):
         return click.echo('An Error has Occurred.')
 
 
-if __name__ = '__main__':
+if __name__ == '__main__':
     cli()
