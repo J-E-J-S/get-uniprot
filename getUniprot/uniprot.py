@@ -3,8 +3,8 @@ import click
 import os
 
 @click.command()
-@click.option('-q', '--query', type=str)
-@click.option('-o', '--organism', type=str)
+@click.option('-q', '--query', type=str, help='Name of protein.')
+@click.option('-o', '--organism', type=str, help='Name of organism.')
 def cli(query, organism, review='yes'):
 
     base = 'https://www.uniprot.org/uniprot/'
