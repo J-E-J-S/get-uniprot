@@ -5,7 +5,6 @@ import os
 @click.command()
 @click.option('-q', '--query', type=str)
 @click.option('-o', '--organism', type=str)
-#@click.option('-r', '--review', default='yes', type=str)
 def cli(query, organism, review='yes'):
 
     base = 'https://www.uniprot.org/uniprot/'
