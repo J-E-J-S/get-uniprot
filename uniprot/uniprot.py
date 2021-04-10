@@ -2,11 +2,15 @@ import requests
 import click
 import os
 
-def uniprot_request(name, organism, review='yes'):
+@click.command()
+@click.option('-q', '--query', type=str)
+@click.option('-o', '--organism', type=str)
+#@click.option('-r', '--review', default='yes', type=str)
+def cli(query, organism, review='yes'):
 
     base = 'https://www.uniprot.org/uniprot/'
-    query = 'name: "{name}" AND taxonomy: {organism} AND reviewed:{reviewed}'.format(name=name, organism=organism, reviewed=review)
-    payload = {'query': query,'format': 'fasta', 'limit':'1'} # Gets fasta sequence limited to 1 sequence
+    search = 'name: "{name}" AND taxonomy: {organism} AND reviewed:{reviewed}'.format(name=name, organism=organism, reviewed=review)
+    payload = {'query': search,'format': 'fasta', 'limit':'1'} # Gets fasta sequence limited to 1 sequence
 
     r = requests.get(base, params=payload)
 
@@ -14,7 +18,7 @@ def uniprot_request(name, organism, review='yes'):
         if len(r.text) == 0:
             return click.echo('Query Does Not Exist.') # Uniprot will not always return a 404 code if protein doesn't exist
         else:
-            return r.text # Return .fasta sequence 
+            return click.echo(r.text) # Output .fasta sequence to shell
 
     # Error Handling
     if r.status_code == 400:
@@ -27,11 +31,5 @@ def uniprot_request(name, organism, review='yes'):
         return click.echo('An Error has Occurred.')
 
 
-
-
-
-
-
-
-a = uniprot_request('eEF1A', 's. cerevisiae')
-print(a)
+if __name__ = '__main__':
+    cli()
