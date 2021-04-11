@@ -1,13 +1,15 @@
 ## Get-Uniprot: A Simple Python CLI for Grabbing Protein Sequences. 🧬
 
-### Prerequisites:
+![](/assets/get-uniprot.gif)
+
+### Prerequisites:  
 - Python >=3.6  
 
-### Quickstart:
+### Quickstart:  
 ```
-pip install get-uniprot
+pip install get-uniprot  
 ```
-### Usage:
+### Usage:  
 ```
 Usage: uniprot [OPTIONS]
 
@@ -19,7 +21,7 @@ Options:
 ```
 e.g.  
 ```
-uniprot -q eEF1A -o 'S. cerevisiae' -f
+uniprot -q eEF1A -o 'S. cerevisiae' -f  
 ```
 ### Output:  
-Command will output sequence to the shell and create a .fasta file in the current directory if -f supplied. 
+Command will output sequence to the shell and create a .fasta file in the current directory if -f supplied.
