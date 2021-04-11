@@ -4,7 +4,7 @@ import click
 @click.command()
 @click.option('-q', '--query', type=str, help='Name of protein.')
 @click.option('-o', '--organism', type=str, help='Name of organism.')
-@click.option('-f', '--file', is_flag=True)
+@click.option('-f', '--file', is_flag=True help = 'Output sequence to .fasta file.')
 def cli(query, organism, file):
 
     base = 'https://www.uniprot.org/uniprot/'
