@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = '1.1.2'
+VERSION = '1.1.3'
 DESCRIPTION = 'Python CLI for accessing protein .fasta sequences using the UNIPROT API.'
 LONG_DESCRIPTION = 'This package contains a CLI that returns a proteins fasta sequence to the shell.'
 
