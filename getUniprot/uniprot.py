@@ -2,15 +2,24 @@ import requests
 import click
 
 @click.command()
-@click.option('-q', '--query', type=str, help='Name of protein.')
+@click.argument('query')
 @click.option('-o', '--organism', type=str, help='Name of organism.')
 @click.option('-f', '--file', is_flag=True, help = 'Output sequence to .fasta file.')
 def cli(query, organism, file):
 
-    base = 'https://www.uniprot.org/uniprot/'
-    search = 'name: "{name}" AND taxonomy: {organism} AND reviewed:yes'.format(name=query, organism=organism)
-    payload = {'query': search,'format': 'fasta', 'limit':'1'} # Gets fasta sequence limited to 1 sequence
+    """Arguments:\n
+    QUERY The Protein Name.
+    """
 
+    base = 'https://www.uniprot.org/uniprot/'
+
+    # Alter search parameters depending on whether organism sensitive
+    if organism != None:
+        search = 'name: "{name}" AND taxonomy: {organism}'.format(name=query, organism=organism)
+    if organism == None:
+        search = 'name: "{name}"'.format(name=query)
+
+    payload = {'query': search,'format': 'fasta', 'limit':'1'} # Gets fasta sequence limited to 1 sequence
     r = requests.get(base, params=payload)
 
     if r.status_code == 200:
