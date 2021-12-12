@@ -15,7 +15,7 @@ def cli(query, organism, file):
 
     # Alter search parameters depending on whether organism sensitive
     if organism != None:
-        search = 'name: "{name}" AND taxonomy: {organism}'.format(name=query, organism=organism)
+        search = 'name: "{name}" AND organism: {organism}'.format(name=query, organism=organism)
     if organism == None:
         search = 'name: "{name}"'.format(name=query)
 
