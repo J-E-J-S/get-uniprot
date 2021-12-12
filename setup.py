@@ -1,13 +1,14 @@
 from setuptools import setup, find_packages
+exec(open('getUniprot/__init__.py').read())
 
-VERSION = '1.1.3'
+
 DESCRIPTION = 'Python CLI for accessing protein .fasta sequences using the UNIPROT API.'
 LONG_DESCRIPTION = 'This package contains a CLI that returns a proteins fasta sequence to the shell.'
 
 # Setting up
 setup(
         name="get-uniprot",
-        version=VERSION,
+        version=__version__,
         author="James Sanders",
         author_email="james.sanders1711@gmail.com",
         url = 'https://github.com/J-E-J-S/get-uniprot',
