@@ -11,20 +11,18 @@ pip install get-uniprot
 ```
 ### Usage:  
 ```
-Usage: uniprot [OPTIONS] QUERY
-
-  Arguments:
-
-  QUERY The Protein Name.
+Usage: uniprot [OPTIONS]
 
 Options:
+  -p, --protein TEXT   Name of protein.
+  -g, --gene TEXT      Name of gene.
   -o, --organism TEXT  Name of organism.
   -f, --file           Output sequence to .fasta file.
   --help               Show this message and exit.
 ```
 e.g.  
 ```
-uniprot -q eEF1A -o 'S. cerevisiae' > eEF1A.fasta  
+uniprot -p eEF1A -o 'S. cerevisiae' > eEF1A.fasta  
 ```
 ### Output:  
 Command will output sequence to the shell and create a .fasta file in the current directory if -f supplied.  
