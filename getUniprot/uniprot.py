@@ -30,7 +30,10 @@ def cli(protein, gene, organism, file):
         else:
             # Output file if -f option raised
             if file == True:
-                output_file = query + '_' + organism
+                output_file = search.replace('name: ', '')
+                output_file = output_file.replace('gene: ', '')
+                output_file = output_file.replace('organism: ', '')
+                output_file = output_file.replace(' AND ', '_')
                 output_file = output_file.replace(' ', '_') # Replace spaces
                 output_file = output_file.replace('.', '') # Replace periods
                 output_file = output_file + '.fasta' # Add extension after cleaning
